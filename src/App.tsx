@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 
 type Weight = "1.25" | "2.5" | "5" | "10" | "15" | "20" | "25";
