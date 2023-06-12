@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import "./App.css";
 
-type Weight = "1.25" | "2.5" | "5" | "10" | "15" | "20" | "25";
+type Weight = "0.5" | "1.25" | "2.5" | "5" | "10" | "15" | "20" | "25";
 const availablePlates: Record<Weight, boolean> = {
+  "0.5": true,
   "1.25": true,
   "2.5": true,
   "5": true,
@@ -45,10 +46,9 @@ function App() {
   const onCheckBoxSelected = (weight: Weight) => {
     setPlates((plates) => ({ ...plates, [weight]: !plates[weight] }));
   };
-  console.log(platesQuantity(weight, barWeight, plates));
   return (
     <div className="App">
-      <h3>Available Plates</h3>
+      <p>Available Plates</p>
       {Object.entries(plates).map(([weight, checked]) => (
         <div key={weight}>
           <label>{weight} kg</label>
