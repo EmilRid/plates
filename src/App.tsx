@@ -49,16 +49,18 @@ function App() {
   return (
     <div className="App">
       <p>Available Plates</p>
-      {Object.entries(plates).map(([weight, checked]) => (
-        <div key={weight}>
-          <label>{weight} kg</label>
-          <input
-            type="checkbox"
-            onChange={(e) => onCheckBoxSelected(weight as Weight)}
-            checked={checked}
-          />
-        </div>
-      ))}
+      {Object.entries(plates)
+        .sort((a, b) => parseInt(a[0]) - parseInt(b[0]))
+        .map(([weight, checked]) => (
+          <div key={weight}>
+            <label>{weight} kg</label>
+            <input
+              type="checkbox"
+              onChange={(e) => onCheckBoxSelected(weight as Weight)}
+              checked={checked}
+            />
+          </div>
+        ))}
       <div>
         <p>Bar Weight</p>
         <input
